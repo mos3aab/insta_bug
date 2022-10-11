@@ -6,15 +6,17 @@ application up and running.
 Things you may want to cover:
 * Ruby version  - V5
 
-* System dependencies 
-# ruby gems rails 
-# Yarn package manager 
-# mysql
+# System dependencies 
+* ruby gems rails 
+* Yarn package manager 
+* mysql
 
-* Configuration: update  
-# update config/database.yml
-# bundle install / update
-# rails s
+# Configuration: update  
+* update config/database.yml
+* bundle install / update
+* rails db:create
+* rails db:migrate
+* rails s
 
 * Database creation
 # rails db:create
