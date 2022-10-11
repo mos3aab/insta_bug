@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  db:
+    image: mysql:8.0.30
+    restart: always
+    environment:
+      MYSQL_DATABASE: chat_app_api_development 
+      MYSQL_USER: phpmyadmin
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_PASSWORD: 123
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  web:
+    build: .
+    command: bash -c "bundle install exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      DB_USER: phpmyadmin 
+      DB_PASSWORD: 123
+      DB_NAME: chat_app_api_development
+      DB_HOST: localhost
