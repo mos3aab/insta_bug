@@ -1,13 +1,13 @@
 class ChatsController < ApplicationController
 
-# view all chats url : applications/d246a72292c4010fef8c140345041f2eac59b384/chats
+    # view all chats 
     def index
     app_id = App.where(token: params['application_token']).first()
     @chats = Chat.where(app_id:app_id['id'])
     render json:@chats
     end
     
-    # create new chat url /application/chat body { id:""}  
+    # create new chat 
     def create
     if !App.exists?(token: params['id'])
         render json:"App Not Found !"

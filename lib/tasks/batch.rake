@@ -5,7 +5,6 @@ namespace :batch do
       @messages_count = Message.where(chat_id:value['id']).count()
       updateChat = Chat.where(id:value['id'])
       updateChat.update(messages_count:@messages_count)
-      puts "chatNo #{value['id']} has  #{@messages_count}"
     end
 
   end
@@ -16,7 +15,6 @@ namespace :batch do
       @chats_count = Chat.where(app_id:value['id']).count()
       updateApp = App.where(id:value['id'])
       updateApp.update(chats_count:@chats_count)
-      puts "app #{value['name']} has  #{@chats_count}"
     end    
   end
 
